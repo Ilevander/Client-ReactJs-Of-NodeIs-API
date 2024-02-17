@@ -27,6 +27,9 @@ const ReadUsers = () => {
                     <Card.Body>
                         <h4>{user.name}</h4>
                         <p>{user.email}</p>
+                        {user.city && user.country && (
+                            <p> {user.city} - {user.country} </p>
+                        ) }
                     </Card.Body>
                 </Card>
             </Col>
@@ -34,8 +37,8 @@ const ReadUsers = () => {
     ));
 
     return (
-        <Container>
-            <h3 className="text-center">Users</h3>
+        <Container className="mt-5 mb-5">
+            <h3 className="text-center mb-3">Users</h3>
             <Row className="justify-content-md-center">
                 {renderedUsers}
             </Row>

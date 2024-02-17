@@ -1,12 +1,12 @@
 import { Container } from "react-bootstrap";
-import ReadUsers from "./components/ReadUsers";
+import UsersList from "./components/UsersList";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const App = () => {
   return (
-    <Container>
-       <ReadUsers/>
+    <Container fluid className="mt-4 mt-3">
+       <UsersList/>
     </Container>       
   );
 }
