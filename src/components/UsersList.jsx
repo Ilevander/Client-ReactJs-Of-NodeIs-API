@@ -6,11 +6,11 @@ import styled from "styled-components";
 const StyledCard = styled(Card)`
     margin-bottom: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: ${props => props.bgColor};
-    color: ${props => props.textColor};
+    background-color: ${props => props.bgColor || "#f0f0f0"}; /* Default to #f0f0f0 if bgColor prop is not provided */
+    color: ${props => props.textColor || "#333"}; /* Default to #333 if textColor prop is not provided */
 `;
 
-const ReadUsers = () => {
+const UserList = () => {
     const getAllUsers = 'http://localhost:4000/v1/user/all';
     const [users, setUsers] = useState([]);
 
@@ -31,7 +31,7 @@ const ReadUsers = () => {
     const renderedUsers = users.map(user => (
         <Row className='justify-content-center' key={user.id}>
             <Col lg={4}>
-                <StyledCard bgColor="#f0f0f0" textColor="#333">
+                <StyledCard>
                     <Card.Body>
                         <h4>{user.name}</h4>
                         <p>{user.email}</p>
@@ -54,4 +54,4 @@ const ReadUsers = () => {
     );
 }
 
-export default ReadUsers;
+export default UserList;
