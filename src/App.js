@@ -1,9 +1,13 @@
-// src\App.js
+import { Container } from "react-bootstrap";
+import ReadUsers from "./components/ReadUsers";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 const App = () => {
   return (
-    <div className="App">
-      
-    </div>
+    <Container>
+       <ReadUsers/>
+    </Container>       
   );
 }
 
