@@ -11,12 +11,12 @@ const StyledCard = styled(Card)`
 `;
 
 const UserList = () => {
-    const getAllUsers = 'http://localhost:4000/v1/user/all';
+    const getAllUsersEndpoint = 'http://localhost:4000/v1/user/all';
     const [users, setUsers] = useState([]);
 
     const fetchUsers = async () => {
         try {
-            const res = await axios.get(getAllUsers);
+            const res = await axios.get(getAllUsersEndpoint);
             console.log(res.data);
             setUsers(res.data);
         } catch (error) {
