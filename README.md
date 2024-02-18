@@ -74,3 +74,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - React-bootstrap
 - Styled-Component 
 - React-router-dom
+- React-toastify
