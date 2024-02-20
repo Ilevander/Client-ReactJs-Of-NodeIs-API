@@ -3,25 +3,9 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Col, Card, Row } from "react-bootstrap";
 import styled from "styled-components";
-import Layout from "./Layout.jsx";
+import Layout from "../../components/layout/Layout.jsx";
 
-const StyledCard = styled(Card)`
-  margin-bottom: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #b5e7ee; 
-  color: #333333;
-  border-radius: 10px;
-`;
 
-const StyledTitle = styled.h3`
-  text-align: center;
-  margin-bottom: 30px;
-`;
-
-const StyledErrorMessage = styled.div`
-  text-align: center;
-  color: #ff0000;
-`;
 
 const RetrieveUser = () => {
   const { userId } = useParams();
@@ -40,7 +24,7 @@ const RetrieveUser = () => {
   };
 
   useEffect(() => {
-    fetchUser();
+    fetchUser();// eslint-disable-next-line
   }, [userId]);
 
   return (
@@ -72,3 +56,21 @@ const RetrieveUser = () => {
 };
 
 export default RetrieveUser;
+
+const StyledCard = styled(Card)`
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #b5e7ee; 
+  color: #333333;
+  border-radius: 10px;
+`;
+
+const StyledTitle = styled.h3`
+  text-align: center;
+  margin-bottom: 30px;
+`;
+
+const StyledErrorMessage = styled.div`
+  text-align: center;
+  color: #ff0000;
+`;

@@ -1,40 +1,21 @@
 import React, { useState } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
-import axios from "axios";
 import { toast } from "react-toastify";
-import Layout from "./Layout.jsx";
+import Layout from "../../components/layout/Layout.jsx";
 import styled from "styled-components";
-
-const UserTitle = styled.h3`
-  color: #333;
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 20px;
-`;
-
-const StyledForm = styled(Form)`
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-`;
-
-const StyledButton = styled(Button)`
-  width: 100%;
-`;
+import { firstUpperCase } from '../../helpers/string.helpers.js';
+import * as userService from '../../services/user.service.js';
 
 const CreateUser = () => {
-  const createUserEndpoint = 'http://localhost:4000/v1/user/create';
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
-  
+
   const submitForm = async (event) => {
     event.preventDefault();
 
-    const payload = {
+    const createUserPayload = {
       name,
       email,
       city,
@@ -42,20 +23,36 @@ const CreateUser = () => {
     };
 
     try {
-      const res = await axios.post(createUserEndpoint, payload);
-      if (res?.data?.status) {
-        toast.success('The user has been successfully created');
-        // Reset form fields
+      const response = await userService.createUser(createUserPayload);
+
+      if (response?.status) {
+        const userName = response?.user?.name;
+
+        toast.success(`User ${userName} has been created!`);  
+
+        // Clear states
         setName("");
         setEmail("");
         setCity("");
         setCountry("");
       } else {
-        toast.warn('An error has occurred.');
+        toast.warn("An error has occurred.");
       }
     } catch (error) {
-      console.error("Error creating user:", error);
-      toast.error('An error has occurred.');
+      const getErrorMessage = () => {
+        const {
+          data: {
+            errors: { body },
+          },
+        } = error.response;
+
+        const message = body[0]?.message;
+
+        // Uppercase the first letter of the message
+        return firstUpperCase(message);
+      };
+
+      toast.error(getErrorMessage());
     }
   };
 
@@ -112,3 +109,21 @@ const CreateUser = () => {
 };
 
 export default CreateUser;
+
+const UserTitle = styled.h3`
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+`;
+
+const StyledForm = styled(Form)`
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+`;
+
+const StyledButton = styled(Button)`
+  width: 100%;
+`;
