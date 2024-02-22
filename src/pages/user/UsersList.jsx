@@ -4,9 +4,10 @@ import * as userService from '../../services/user.service';
 import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { List } from 'react-content-loader';
+import { TbUsersGroup } from "react-icons/tb";
 
 const UsersList = () => {
-  const [users, setUsers] = useState({}); // Important, default need to be empty object
+  const [users, setUsers] = useState({}); 
   const [errorMessage, setErrorMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -43,7 +44,7 @@ const UsersList = () => {
         <h3 className='text-center text-danger fw-bold'>{errorMessage}</h3>
       ) : (
         <>
-          <h4 className='text-center mb-3'>Users</h4>
+          <h4 className='text-center mb-3'> <TbUsersGroup /> Users</h4>
           <Row className='justify-content-center'>
             {Object.values(users).map((user) => (
               <Col key={user.id} lg={4} className='p-1'>

@@ -27,10 +27,10 @@ export default Layout;
 
 const BackgroundColor = createGlobalStyle 
     ` body {
-        background-color: #f0f0f0; 
+        background-color: #c4fcfb; 
     }`
 ;
 const StyledContainer = styled(Container)`
-    margin-top: 80px; /* Adjust the margin-top value as needed */
+    margin-top: 80px; 
 `;
 

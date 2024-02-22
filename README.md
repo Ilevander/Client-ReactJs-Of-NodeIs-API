@@ -76,6 +76,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - React-router-dom
 - React-toastify: animated notification
 - React-content-loader : SVG-Powered component to easily create placeholder loadings (like Facebook's cards loading).
+- Bootstrap-icons
 
 
 

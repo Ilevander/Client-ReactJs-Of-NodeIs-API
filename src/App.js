@@ -9,14 +9,15 @@ import EditUser from "./pages/user/EditUser.jsx";
 import RemoveUser from "./pages/user/RemoveUser.jsx";
 import Contact from "./pages/static/Contact.jsx";
 import About from "./pages/static/AboutUs.jsx";
-
+import Slider from "./components/layout/Slider.jsx";
 
 const App = () => {
   return (
     <>
           <BrowserRouter>
               <Routes>
-                <Route path="/" element={<UsersList/>} />
+                <Route path="/" element={<Slider/>} />
+                <Route path="/users" element={<UsersList/>} />
                 <Route path="/create" element={<CreateUser/>} />
                 <Route path="/get/:userId/" element={<RetrieveUser/>} />
                 <Route path="/update/:userId/" element={<EditUser/>} />

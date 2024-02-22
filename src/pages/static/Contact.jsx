@@ -8,7 +8,7 @@ const Contact = () => {
       <Row className="justify-content-center">
         <Col md={10}>
           <p class="text-center">
-            Contact me at <span className="fst-italic">MY EMAIL ADDRESS</span>
+            Contact me from here <span className="fst-italic">@@@@@@@@@@@@gmail.com</span>
           </p>
         </Col>
       </Row>

@@ -1,57 +1,71 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { BsLinkedin } from "react-icons/bs";
+import { ImInstagram } from "react-icons/im";
+import { FaTiktok } from "react-icons/fa6";
+import { IoLogoYoutube } from "react-icons/io";
+
 
 const Footer = () => {
   return (
-    <StyledContainer fixed="top" bg="dark" data-bs-theme="dark">
-      <hr />
-      <StyledRow className="mt-5 mb-5 justify-content-center">
-        <Col md={{ span: 3, offset: 1 }}>
-          <h4>User</h4>
-          <StyledLink className="text-muted fw-bold" to="/create">
-            Create A User
-          </StyledLink>
-        </Col>
+    <StyledFooter bg="dark" data-bs-theme="dark" className="mt-5"> {/* Add margin-bottom */}
+      <Container>
+        <hr />
+        <Row className="mt-5 mb-5 justify-content-center">
+          <Col md={{ span: 3, offset: 1 }}>
+            <h4>User</h4>
+            <StyledNavLinkBlue className="fw-bold" to="/create">
+              Create A User
+            </StyledNavLinkBlue>
+          </Col>
 
-        <Col md={{ span: 3, offset: 1 }}>
-          <h4>About Us</h4>
+          <Col md={{ span: 3, offset: 1 }}>
+            <h4>About Us</h4>
+            <StyledNavLinkBlue to="/about">
+              About Us
+            </StyledNavLinkBlue>
+          </Col>
 
-          <StyledLink className="text-muted" to="/about">
-            About Us
-          </StyledLink>
-        </Col>
+          <Col md={{ span: 3 }}>
+            <h4>Contact</h4>
+            <StyledNavLinkBlue to="/contact">
+              Contact
+            </StyledNavLinkBlue>
+          </Col>
+        </Row>
 
-        <Col md={{ span: 3 }}>
-          <h4>Contact</h4>
-          <StyledLink className="text-muted" to="/contact">
-            Contact
-          </StyledLink>
-        </Col>
-      </StyledRow>
-    </StyledContainer>
+        {/* Additional content */}
+        <Row className="mt-5 justify-content-center">
+          <Col md={{ span: 6 }}>
+            <h4><BsLinkedin /> <ImInstagram /> <FaTiktok /> <IoLogoYoutube />
+ </h4>
+          </Col>
+        </Row>
+
+        <Row className="mt-3">
+          <Col>
+            <p className="text-center">© 2024 Ilyass EL AMRI. All rights reserved.</p>
+          </Col>
+        </Row>
+      </Container>
+    </StyledFooter>
   );
 };
 
 export default Footer;
 
-const StyledContainer = styled(Container)`
-  background-color: #343a40; /* Dark background color */
+const StyledFooter = styled.footer`
+  background-color: #20d4f4; 
   padding: 20px;
-  border-top: 1px solid #dee2e6; /* Light border on top */
+  border-top: 1px solid #dee2e6;
 `;
 
-const StyledRow = styled(Row)`
-  margin-bottom: 20px; /* Add space between rows */
-`;
-
-const StyledLink = styled(NavLink)`
-  display: block; /* Make link occupy full width of container */
+const StyledNavLinkBlue = styled(NavLink)`
+  color: blue; 
   text-decoration: none;
-  color: #6c757d; /* Dark gray text color */
-  transition: color 0.3s ease; /* Smooth color transition on hover */
 
   &:hover {
-    color: #ffffff; /* White color on hover */
+    color: #ffffff;
   }
 `;

@@ -4,7 +4,10 @@ import axios from "axios";
 import { Col, Card, Row } from "react-bootstrap";
 import styled from "styled-components";
 import Layout from "../../components/layout/Layout.jsx";
-
+import { FaHandsClapping } from "react-icons/fa6";
+import { FaRegUserCircle } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { FaLocationDot } from "react-icons/fa6";
 
 
 const RetrieveUser = () => {
@@ -31,16 +34,16 @@ const RetrieveUser = () => {
     <Layout className="mt-5 mb-5">
       {user ? (
         <>
-          <StyledTitle>Hello user <u>{user.name}</u></StyledTitle>
+          <StyledTitle> <FaHandsClapping /> Hello user <u>{user.name}</u></StyledTitle>
           <Row className="justify-content-center">
             <Col lg={4}>
               <StyledCard>
                 <Card.Body>
-                  <h4>{user.name}</h4>
-                  <p>{user.email}</p>
+                  <h4><FaRegUserCircle /> {user.name}</h4>
+                  <p> <MdEmail /> {user.email}</p>
                   {user.city && user.country && (
                     <p>
-                      {user.city} - {user.country}
+                      <FaLocationDot /> {user.city} - {user.country}
                     </p>
                   )}
                 </Card.Body>
